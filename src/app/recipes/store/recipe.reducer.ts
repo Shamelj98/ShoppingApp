@@ -2,7 +2,7 @@ import { Recipe } from '../recipe.model';
 import * as RecipesActions from '../store/recipes.action';
 
 export interface State {
-  recipes: Recipe[];
+  recipes: any[];
 }
 
 const initialState: State = {

@@ -30,7 +30,7 @@ export class RecipeEditComponent implements OnInit, OnDestroy {
     private store: Store<fromApp.AppState>
   ) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.route.params.subscribe((params: Params) => {
       this.id = +params['id'];
       this.editMode = params['id'] != null;
@@ -76,7 +76,7 @@ export class RecipeEditComponent implements OnInit, OnDestroy {
     this.router.navigate(['../'], { relativeTo: this.route });
   }
 
-  ngOnDestroy(){
+  ngOnDestroy(): void {
     if (this.storeSub){
       this.storeSub.unsubscribe();
     }

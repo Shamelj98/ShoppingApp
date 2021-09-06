@@ -6,9 +6,9 @@ export interface State {
     authError: string;
     loading: boolean;
 }
-const initialState = {
- user: null,
- authError: null,
+const initialState : State =  {
+ user: {token: ''},
+ authError: '',
  loading: false
 };
 export function authReducer(

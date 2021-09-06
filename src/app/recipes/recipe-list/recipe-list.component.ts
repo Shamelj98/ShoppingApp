@@ -24,7 +24,7 @@ export class RecipeListComponent implements OnInit, OnDestroy {
               private store: Store<fromApp.AppState>) {
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.subscription = this.store.select('recipes').pipe(map(recipesState => recipesState.recipes))
       .subscribe(
         (recipes: Recipe[]) => {
@@ -38,7 +38,7 @@ export class RecipeListComponent implements OnInit, OnDestroy {
     this.router.navigate(['new'], {relativeTo: this.route});
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this.subscription.unsubscribe();
   }
 }

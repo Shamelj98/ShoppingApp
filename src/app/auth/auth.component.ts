@@ -15,7 +15,7 @@ export class AuthComponent implements OnInit, OnDestroy {
   isLoginMode = true;
   isLoading = false;
   error: any = null;
-  @ViewChild(PlaceholderDirective) alertHost: PlaceholderDirective; //{static: false}
+  @ViewChild(PlaceholderDirective, {static: false}) alertHost: PlaceholderDirective; //{static: false}
   
   private storeSub: Subscription;
   private closeSub: Subscription;
@@ -45,14 +45,15 @@ export class AuthComponent implements OnInit, OnDestroy {
     const password = form.value.password;
 
 
-    this.isLoading = true;
+    
 
     if (this.isLoginMode) {
      // authObs = this.authService.login(email, password);
      this.store.dispatch(new AuthActions.LoginStart({email: email, password: password})
-     );} else {
+     );} 
+     else {
        this.store.dispatch(new AuthActions.SignupStart({email: email, password: password})
-       );
+       )
      }
     
     
